@@ -1,22 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    {% if title %}}
-        <title> Flask Blog - {{ title }}</title>
-    {% else %}
-        <title> Flask Blog</title>
-    {% endif %}
-</head>
-<body>
-<h1>Welcome to Home Page </h1>
-<h2>Hi There, Welcome to Home Page !!! This is from Template Folder</h2>
+{% extends "layout.html" %}
+{% block content %}
     {% for post in posts%}
-        <h1>{{ post.title }}</h1>
-        <p>By :: <u> {{ post.author }} </u> on {{ post.date_posted }}</p>
-        <h4><u>Summary</u></h4>
-        <p>{{ post.content }}</p>
+        <article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="#">{{ post.author }}</a>
+              <small class="text-muted">{{ post.date_posted }}</small>
+            </div>
+            <h2><a class="article-title" href="#">{{ post.title }}</a></h2>
+            <p class="article-content">{{ post.content }}</p>
+          </div>
+        </article>
     {% endfor %}
-
-</body>
-</html>
+{% endblock content %}

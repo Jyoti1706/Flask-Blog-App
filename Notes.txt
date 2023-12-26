@@ -1,1 +1,4 @@
-Templates is hard coded as in we have to keep templates folder as templates, template will not work.
+"templates" name is hard coded using name as "template" will not work. Jinja will not recognise.
+
+# Layout.html is parent template for multiple page, so we can have all common component and styling here and
+inherit this in other page to make it consistent
