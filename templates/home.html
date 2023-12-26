@@ -2,11 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>HomePage</title>
+    {% if title %}}
+        <title> Flask Blog - {{ title }}</title>
+    {% else %}
+        <title> Flask Blog</title>
+    {% endif %}
 </head>
 <body>
 <h1>Welcome to Home Page </h1>
-<h2>Hi There !!! This is from Template Folder</h2>
+<h2>Hi There, Welcome to Home Page !!! This is from Template Folder</h2>
+    {% for post in posts%}
+        <h1>{{ post.title }}</h1>
+        <p>By :: <u> {{ post.author }} </u> on {{ post.date_posted }}</p>
+        <h4><u>Summary</u></h4>
+        <p>{{ post.content }}</p>
+    {% endfor %}
 
 </body>
 </html>
